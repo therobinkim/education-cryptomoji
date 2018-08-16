@@ -5,7 +5,7 @@ import { NavLink  } from 'react-router-dom';
 export function NavBar({ publicKey, logout }) {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-      <span className="navbar-brand mb-0 h1">Cryptomoji</span>
+      <NavLink to="/" className="navbar-brand mb-0 h1">Cryptomoji</NavLink>
       <button
         className="navbar-toggler"
         type="button"

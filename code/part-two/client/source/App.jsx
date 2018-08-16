@@ -10,6 +10,7 @@ import { Auth } from './Auth';
 
 import { Collection } from './Collection';
 import { CollectionList } from './CollectionList';
+import { Home } from './Home';
 import { Moji } from './Moji';
 import { Offer } from './Offer';
 import { OfferList } from './OfferList';
@@ -68,6 +69,11 @@ export class App extends React.Component {
         {publicKey && <div>Public Key: <code>{publicKey}</code></div>}
         <br /><br />
         <Switch>
+          <Route
+            exact
+            path="/"
+            component={Home}
+          />
           <Route
             exact
             path="/auth"
