@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { SireIndicator } from './SireIndicator';
 import { getMoji, getSires } from './services/requests';
 import { parseDna } from './services/parse_dna';
 
@@ -24,10 +25,6 @@ export class MojiListItem extends React.Component {
   }
 
   render() {
-    let sireIndicator = null;
-    if (this.state.isSire) {
-      sireIndicator = <span className="badge badge-primary">🎩 sire</span>;
-    }
     return (
       <div className="card">
         <div className="card-body">
@@ -37,7 +34,7 @@ export class MojiListItem extends React.Component {
           >
             {this.state.mojiView}
             {' '}
-            {sireIndicator}
+            {this.state.isSire && <SireIndicator />}
           </Link>
         </div>
       </div>

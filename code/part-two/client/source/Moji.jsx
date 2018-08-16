@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { BreedDropdownMenu } from './BreedDropdownMenu';
 import { MojiList } from './MojiList';
 import { MojiListItem } from './MojiListItem';
+import { SireIndicator } from './SireIndicator';
 import { getMoji, getSires, submitPayloads } from './services/requests';
 import { parseDna } from './services/parse_dna';
 
@@ -98,11 +99,6 @@ export class Moji extends React.Component {
     }
 
     let actionButton = null;
-    let sireIndicator = null;
-
-    if (isSire) {
-      sireIndicator = <span className="badge badge-primary">🎩 sire</span>;
-    }
 
     if (isOwner && !isSire) {
       actionButton = (
@@ -126,7 +122,7 @@ export class Moji extends React.Component {
     return (
       <div>
         {actionButton}
-        <h2>{mojiView} {' '} {sireIndicator}</h2>
+        <h2>{mojiView} {' '} {isSire && <SireIndicator/>}</h2>
         <table className="table">
           <tbody>
             <tr><td>address</td><td>{moji.address}</td></tr>

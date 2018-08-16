@@ -1,6 +1,7 @@
 /* SOLUTION FILE */
 import React from 'react';
 
+import { SireIndicator } from './SireIndicator';
 import {
   getCollections,
   getMoji,
@@ -71,13 +72,9 @@ export class BreedDropdownMenu extends React.Component {
         >
           {this.state.userCollection.moji.map(moji => {
             let disabled = '';
-            let sireIndicator = null;
             let clickHandler = this.breed.bind(null, moji);
             if (moji.isSire) {
               disabled = ' disabled';
-              sireIndicator = (
-                <span className="badge badge-primary">🎩 sire</span>
-              );
               clickHandler = () => {
                 alert("Sorry, you can't breed two sires together!");
               };
@@ -88,7 +85,11 @@ export class BreedDropdownMenu extends React.Component {
                 type="button"
                 onClick={clickHandler}
                 key={moji.address || moji}
-              >{moji.mojiView} {' '} {sireIndicator}</button>
+              >
+                {moji.mojiView}
+                {' '}
+                {moji.isSire && <SireIndicator />}
+              </button>
             );
           })}
         </div>
